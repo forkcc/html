@@ -2,68 +2,83 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="5;url=https://juhou.live/">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>正在前往剧逅网...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background-color: #1a1c35;
-      color: #ffffff;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #101012;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 20px;
       height: 100vh;
-      margin: 0;
+      text-align: center;
     }
 
     h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
     }
 
-    .subtitle {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #cccccc;
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
     }
 
     .countdown {
-      font-size: 16px;
-      margin-bottom: 10px;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #00ffcc;
     }
 
-    .blessing {
-      margin-top: 20px;
-      font-size: 16px;
-      color: #80caff;
+    .btn {
+      background-color: #00ffcc;
+      color: #101012;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
     }
 
-    a {
-      color: #4da6ff;
-      text-decoration: underline;
+    .btn:hover {
+      background-color: #00ddaa;
     }
 
-    a:hover {
-      color: #80caff;
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #888;
     }
   </style>
-  <script>
-    let seconds = 5;
-    function countdown() {
-      if (seconds >= 0) {
-        document.getElementById("countdown").textContent = seconds;
-        seconds--;
-        setTimeout(countdown, 1000);
-      }
-    }
-    window.onload = countdown;
-  </script>
 </head>
 <body>
-  <h1>正在前往剧逅网...</h1>
-  <p class="subtitle">用户共建的影视聚合平台</p>
-  <p class="countdown">页面将在 <span id="countdown">5</span> 秒后自动跳转</p>
+  <h1>即将前往剧逅网</h1>
+  <p>请稍候，页面将在 <span class="countdown" id="countdown">5</span> 秒后自动跳转</p>
+  <a class="btn" href="https://juhou.live/">立即跳转</a>
+
+  <div class="footer">© 2025 剧逅网</div>
+
+  <script>
+    let timeLeft = 5;
+    const countdownEl = document.getElementById('countdown');
+    const targetURL = "https://juhou.live/";
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = timeLeft;
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        window.location.href = targetURL;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
