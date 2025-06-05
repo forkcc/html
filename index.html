@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="5;url=https://juhou.live/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正在前往剧逅网...</title>
+  <style>
+    body {
+      background-color: #1a1c35;
+      color: #ffffff;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #cccccc;
+    }
+
+    .countdown {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .blessing {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #80caff;
+    }
+
+    a {
+      color: #4da6ff;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #80caff;
+    }
+  </style>
+  <script>
+    let seconds = 5;
+    function countdown() {
+      if (seconds >= 0) {
+        document.getElementById("countdown").textContent = seconds;
+        seconds--;
+        setTimeout(countdown, 1000);
+      }
+    }
+    window.onload = countdown;
+  </script>
+</head>
+<body>
+  <h1>正在前往剧逅网...</h1>
+  <p class="subtitle">用户共建的影视聚合平台</p>
+  <p class="countdown">页面将在 <span id="countdown">5</span> 秒后自动跳转</p>
