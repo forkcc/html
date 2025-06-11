@@ -95,8 +95,8 @@
     <div class="overlay">
       <h1>东南亚影迷站</h1>
       <p>华人剧迷的聚集地 · 每天发现好剧</p>
-      <a href="https://juhou.live/" onclick="fbq('track', 'Lead');" class="btn">📺 进入影视站</a>
-      <a href="https://chat.whatsapp.com/JeGzCaTbyuD7LLqBCPqgQs" onclick="fbq('track', 'Subscribe');" class="btn">📲 加入追剧群</a>
+      <a href="javascript:void(0)" id="btn-lead" class="btn">📺 进入影视站</a>
+      <a href="javascript:void(0)" id="btn-subscribe" class="btn">📲 加入追剧群</a>
 <!--      <div class="countdown">
         正在跳转到影视站（<span id="countdown">5</span> 秒）...
       </div> -->
@@ -119,5 +119,25 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1214415463657020&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+<script>
+  setTimeout(function(){
+    if (!window.hasClickedCTA) {
+      fbq('trackCustom', 'NoClick');
+    }
+  }, 60000); // 60秒内未点击按钮
+</script>
+<script>
+  document.getElementById('btn-lead').addEventListener('click', function () {
+    window.hasClickedCTA = true;
+    fbq('track', 'Lead');
+    window.location.href = 'https://juhou.live/';
+  });
+
+  document.getElementById('btn-subscribe').addEventListener('click', function () {
+    window.hasClickedCTA = true;
+    fbq('track', 'Subscribe');
+    window.location.href = 'https://chat.whatsapp.com/JeGzCaTbyuD7LLqBCPqgQs';
+  });
+</script>
 </body>
 </html>
